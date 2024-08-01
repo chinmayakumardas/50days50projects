@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expanding Cards</title>
+    <style>
+        body {
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .cards {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 90%;
+        }
+        .card {
+            position: relative;
+            margin: 0 5px;
+            border-radius: 35px;
+            overflow: hidden;
+            transition: all 0.7s ease-in;
+            cursor: pointer;
+            width: 5%;
+            height: 100%;
+        }
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .card .caption {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .card.active {
+            width: 60%;
+        }
+    </style>
+</head>
+<body>
+    <div class="cards">
+        <div class="card active">
+            <img src="https://images.unsplash.com/photo-1558979158-65a1eaa08691?ixlib=rb-1.2.1&amp" alt="Image 1">
+            <div class="caption">1</div>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1572276596237-5db2c3e16c5d?ixlib=rb-1.2.1&amp" alt="Image 2">
+            <div class="caption"> 2</div>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&amp" alt="Image 3">
+            <div class="caption"> 3</div>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1551009175-8a68da93d5f9?ixlib=rb-1.2.1&amp" alt="Image 4">
+            <div class="caption"> 4</div>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?ixlib=rb-1.2.1&amp" alt="Image 5">
+            <div class="caption"> 5</div>
+        </div>
+    </div>
+    <script>
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                cards.forEach(c => c.classList.remove('active'));
+                card.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
